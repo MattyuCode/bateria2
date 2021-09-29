@@ -10,12 +10,122 @@ section {
     align-items: center;
     min-height: 100vh;
 
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 10%;
+        left: 30%;
+
+        width: 240px;
+        height: 240px;
+        background: linear-gradient(to top, #150043, #ffff);
+        border-radius: 50%;
+        transform: translate(-150px, -100px);
+        animation: animate 5s ease-in-out infinite;
+        animation-delay: -2.5s;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 10%;
+        right: 30%;
+        width: 240px;
+        height: 240px;
+        background: linear-gradient(to bottom, #fc00ff, aqua);
+        border-radius: 50%;
+        transform: translate(150px, 150px);
+        animation: animate 5s ease-in-out infinite;
+        animation-delay: 2.5s;
+    }
+
+
     .box {
         position: relative;
         width: 260px;
         height: 350px;
-        background: #333;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.1);
         box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
         border: 1px solid rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(25px);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .contenedor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            .bateriaShape {
+                position: relative;
+                width: 140px;
+                height: 65px;
+                margin: 20px 0;
+                border: 3px solid #333;
+                border-radius: 10px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: -12px;
+                    transform: translateY(-50%);
+                    width: 7px;
+                    height: 16px;
+                    background: #333;
+                    border-radius: 2px;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 50%;
+                    background: rgba(255, 255, 255, 0.1);
+                }
+
+                .nivel {
+                    position: absolute;
+                    top: 4px;
+                    left: 4px;
+                    right: 4px;
+                    bottom: 4px;
+                    border-radius: 8px;
+                    background: red;
+                    overflow: hidden;
+
+                    .porcentaje {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 50%;
+                        background: linear-gradient(to right, aqua, yellow);
+                        border-radius: 4px;
+                    }
+                }
+
+            }
+
+        }
+    }
+}
+
+@keyframes animate {
+
+    0%,
+    100% {
+        transform: translateY(20px);
+    }
+
+    50% {
+        transform: translateY(-20px);
     }
 }
