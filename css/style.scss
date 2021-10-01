@@ -3,6 +3,17 @@
     padding: 0;
 }
 
+$BackgroundBlanco: #ffff;
+$BackgroundDark: #3333;
+
+
+
+body.dark{
+    background: #333 ;
+    color: aqua;
+}
+
+
 section {
     position: relative;
     display: flex;
@@ -19,11 +30,15 @@ section {
 
         width: 240px;
         height: 240px;
-        background: linear-gradient(to top, #150043, #ffff);
+        background: linear-gradient(to top, #2f00ff, #15d6e4);
         border-radius: 50%;
         transform: translate(-150px, -100px);
         animation: animate 5s ease-in-out infinite;
         animation-delay: -2.5s;
+
+        body.dark &{
+            background: linear-gradient(to bottom, #fa09ca, rgb(144, 8, 255));
+        }
     }
 
     &::after {
@@ -38,6 +53,10 @@ section {
         transform: translate(150px, 150px);
         animation: animate 5s ease-in-out infinite;
         animation-delay: 2.5s;
+
+        body.dark &{
+            background: linear-gradient(to bottom, #09fae2, rgb(221, 255, 0));
+        }
     }
 
 
@@ -69,6 +88,11 @@ section {
                 border: 3px solid #333;
                 border-radius: 10px;
 
+                body.dark &{
+                    border: 3px solid #fff;
+
+                }
+
                 &::before {
                     content: '';
                     position: absolute;
@@ -88,7 +112,7 @@ section {
                     left: 0;
                     width: 100%;
                     height: 50%;
-                    background: rgba(255, 255, 255, 0.1);
+                    background: rgba(8, 255, 230, 0.1);
                 }
 
                 .nivel {
@@ -98,8 +122,10 @@ section {
                     right: 4px;
                     bottom: 4px;
                     border-radius: 8px;
-                    background: red;
+                    background: rgba(255, 255, 255, 0.1);
                     overflow: hidden;
+
+                   
 
                     .porcentaje {
                         position: absolute;
@@ -107,14 +133,57 @@ section {
                         left: 0;
                         height: 100%;
                         width: 50%;
-                        background: linear-gradient(to right, aqua, yellow);
+                        background: linear-gradient(to right, #3421e4, #05b49d);
                         border-radius: 4px;
                     }
                 }
 
             }
 
+            .porcetajeDeNumeros {
+                color: crimson;
+                font-size: 40px;
+                font-weight: 700;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+                body.dark &{
+                    color: #fff;
+                }
+            }
+
+            h1 {
+                color: #9d2cb1;
+                font-weight: 500;
+                font-size: 40px;
+                letter-spacing: 2px;
+
+                body.dark &{
+                    color: #fff;
+                }
+            }
         }
+    }
+
+    .boton-dark .boton{
+        position: absolute;
+        top:20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        z-index: 1;
+        cursor: pointer;
+        background: darkblue;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &::before{
+            content: '\f186';
+            font-family: fontAwesome;
+            color: #fff;
+        }
+
     }
 }
 
@@ -128,4 +197,15 @@ section {
     50% {
         transform: translateY(-20px);
     }
+}
+
+
+body.dark .boton-dark .boton{
+    background: #ffffff;
+}
+
+
+body.dark .boton-dark .boton::before{
+    content: '\f185';
+    color: #000;
 }
